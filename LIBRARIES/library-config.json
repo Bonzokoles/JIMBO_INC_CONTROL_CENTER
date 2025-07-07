@@ -1,0 +1,45 @@
+{
+  "library_info": {
+    "name": "JIMBO INC Libraries",
+    "version": "1.0.0",
+    "description": "Główne repozytorium bibliotek dla systemu JIMBO INC Control Center",
+    "created": "2024-12-28",
+    "type": "general_library"
+  },
+  "folders": {
+    "CREATED_MODELS": {
+      "description": "Zbiór utworzonych modeli i zasobów",
+      "allowed_formats": ["*.*"],
+      "purpose": "storage"
+    },
+    "TEMPLATES": {
+      "description": "Szablony i wzorce do wykorzystania",
+      "allowed_formats": ["*.*"],
+      "purpose": "templates"
+    },
+    "EXPORTS": {
+      "description": "Eksportowane i przetworzone pliki",
+      "allowed_formats": ["*.*"],
+      "purpose": "exports"
+    },
+    "PREVIEWS": {
+      "description": "Podglądy i miniaturki",
+      "allowed_formats": ["*.jpg", "*.png", "*.gif", "*.webp"],
+      "purpose": "previews"
+    }
+  },
+  "settings": {
+    "auto_generate_previews": true,
+    "max_file_size_mb": 100,
+    "backup_enabled": false,
+    "compression": {
+      "enabled": false,
+      "level": 6
+    }
+  },
+  "metadata": {
+    "last_updated": "2024-12-28",
+    "total_items": 0,
+    "categories": []
+  }
+}

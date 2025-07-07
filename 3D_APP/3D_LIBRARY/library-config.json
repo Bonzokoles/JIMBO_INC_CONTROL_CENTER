@@ -1,0 +1,17 @@
+{
+  "library": {
+    "name": "JIMBO INC 3D Library",
+    "version": "1.0.0",
+    "paths": {
+      "created": "./CREATED_MODELS/",
+      "templates": "./TEMPLATES/",
+      "exports": "./EXPORTS/",
+      "previews": "./PREVIEWS/"
+    },
+    "settings": {
+      "auto_save": true,
+      "preview_generation": true,
+      "supported_formats": ["glb", "obj", "stl", "fbx"]
+    }
+  }
+}

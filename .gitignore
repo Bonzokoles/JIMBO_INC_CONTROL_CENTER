@@ -1,0 +1,54 @@
+# JIMBO INC Control Center - Gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.next/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+.cache/
+*.tmp
+
+# Local env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 3D Models (large files)
+*.glb
+*.gltf
+*.fbx
+*.obj
+*.stl
+
+# Temporary files
+temp/
+tmp/
+*.bak

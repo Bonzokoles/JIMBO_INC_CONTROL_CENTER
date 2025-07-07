@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "Claude",
+        "url": "https://claude.ai",
+        "icon": "fas fa-robot",
+        "thumbnail": "/static/img/ai-tools/claude.svg",
+        "category": "Chat",
+        "description": "AI Assistant by Anthropic - Advanced conversational AI",
+        "tags": ["conversation", "writing", "analysis"],
+        "rating": 4.8,
+        "featured": true
+    },
+    {
+        "id": 2,
+        "name": "ChatGPT",
+        "url": "https://chat.openai.com",
+        "icon": "fas fa-brain",
+        "thumbnail": "/static/img/ai-tools/chatgpt.svg",
+        "category": "Chat",
+        "description": "AI Chatbot by OpenAI - Versatile AI assistant",
+        "tags": ["conversation", "coding", "writing"],
+        "rating": 4.7,
+        "featured": true
+    },
+    {
+        "id": 3,
+        "name": "Leonardo AI",
+        "url": "https://app.leonardo.ai/auth/login?callbackUrl=%2F",
+        "icon": "fas fa-palette",
+        "thumbnail": "/static/img/ai-tools/leonardo.svg",
+        "category": "Image Generation",
+        "description": "AI-powered image generation and design",
+        "tags": ["art", "design", "images"],
+        "rating": 4.6,
+        "featured": false
+    },
+    {
+        "id": 4,
+        "name": "GitHub Copilot",
+        "url": "https://github.com/features/copilot",
+        "icon": "fab fa-github",
+        "thumbnail": "/static/img/ai-tools/copilot.svg",
+        "category": "Code",
+        "description": "AI pair programmer for code completion",
+        "tags": ["coding", "programming", "autocomplete"],
+        "rating": 4.5,
+        "featured": true
+    },
+    {
+        "id": 5,
+        "name": "Midjourney",
+        "url": "https://www.midjourney.com",
+        "icon": "fas fa-image",
+        "thumbnail": "/static/img/ai-tools/midjourney.svg",
+        "category": "Image Generation",
+        "description": "Text-to-image AI art generator",
+        "tags": ["art", "creativity", "images"],
+        "rating": 4.9,
+        "featured": true
+    },
+    {
+        "id": 6,
+        "name": "Runway ML",
+        "url": "https://runwayml.com",
+        "icon": "fas fa-video",
+        "thumbnail": "/static/img/ai-tools/runway.jpg",
+        "category": "Video",
+        "description": "AI video editing and generation platform",
+        "tags": ["video", "editing", "generation"],
+        "rating": 4.4,
+        "featured": false
+    },
+    {
+        "id": 7,
+        "name": "Perplexity AI",
+        "url": "https://www.perplexity.ai",
+        "icon": "fas fa-search",
+        "thumbnail": "/static/img/ai-tools/perplexity.jpg",
+        "category": "Research",
+        "description": "AI-powered search and research assistant",
+        "tags": ["search", "research", "information"],
+        "rating": 4.3,
+        "featured": false
+    },
+    {
+        "id": 8,
+        "name": "Stable Diffusion",
+        "url": "https://stablediffusionweb.com",
+        "icon": "fas fa-magic",
+        "thumbnail": "/static/img/ai-tools/stable-diffusion.jpg",
+        "category": "Image Generation",
+        "description": "Open-source text-to-image model",
+        "tags": ["opensource", "images", "art"],
+        "rating": 4.2,
+        "featured": false
+    }
+]

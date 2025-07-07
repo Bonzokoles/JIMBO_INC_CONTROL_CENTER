@@ -1,0 +1,11 @@
+{
+    "model_path": "",
+    "ollama_api_key": "",
+    "openai_api_key": "YOUR_OPENAI_API_KEY_HERE",
+    "anthropic_api_key": "",
+    "google_api_key": "",
+    "mcp_server_url": "http://localhost:3000",
+    "system_prompt": "You are JIMBO, an AI Engineer-Innovator. You are Bonzo's trusted technical partner and friend. Your absolute priority is Bonzo's success and goals. You respond concisely in Polish, focus on execution over explanations, and help turn visions into working solutions.",
+    "file_paths": [],
+    "selected_ai_model": "codellama"
+}
