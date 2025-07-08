@@ -1,0 +1,13 @@
+{
+  "library": {
+    "name": "Business Library",
+    "emoji": "💼",
+    "description": "Biznes, finanse, strategia",
+    "categories": {
+      "contracts": {"icon": "📋"},
+      "invoices": {"icon": "🧾"},
+      "strategy": {"icon": "🎯"},
+      "finances": {"icon": "💰"}
+    }
+  }
+}

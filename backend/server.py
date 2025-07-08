@@ -745,14 +745,28 @@ def get_joke():
         return jsonify({'error': 'Could not fetch joke'}), 500
 
 
+# Import dashboard assistant routes
+# Moved to end to avoid circular import
+# from assistant_routes import *
+
 if __name__ == '__main__':
+    # Import assistant routes after app initialization
+    try:
+        from assistant_routes import *
+        print("Assistant routes loaded successfully")
+    except Exception as e:
+        print(f"Warning: Could not load assistant routes: {e}")
+    
     print("Starting JIMBODASH Flask server...")
     print("AI Chat System Enhanced with Multiple Providers")
+    print("Dashboard Assistant AI Integration")
     print("Available endpoints:")
     print("- Chat: /api/chat/send")
     print("- Conversations: /api/chat/conversations")
     print("- Models: /api/chat/models")
     print("- Config: /api/config/ai")
+    print("- Assistant: /api/assistant/guidance")
+    print("- Libraries: /api/libraries/launch")
     app.run(debug=True, port=6025, host='127.0.0.1')# Enhanced Utilities Section - JIMBO Dashboard
 # Tools: File Manager, System Cleaner, Network Tools, Process Manager, Text Editor, Calculator, QR Code, Password Gen
 

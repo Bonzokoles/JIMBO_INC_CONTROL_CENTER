@@ -1,0 +1,15 @@
+{
+  "library": {
+    "name": "AI Models Library",
+    "emoji": "🤖",
+    "description": "AI, prompty, modele",
+    "categories": {
+      "prompts": {"icon": "💭"},
+      "configurations": {"icon": "⚙️"},
+      "training_data": {"icon": "📊"},
+      "workflows": {"icon": "🔄"},
+      "agents": {"icon": "🤖"},
+      "tools": {"icon": "🛠️"}
+    }
+  }
+}

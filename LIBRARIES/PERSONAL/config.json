@@ -1,0 +1,15 @@
+{
+  "library": {
+    "name": "Personal Library",
+    "emoji": "🔒",
+    "description": "Dane osobiste Bonzo",
+    "categories": {
+      "documents": {"icon": "📄"},
+      "certificates": {"icon": "🏆"},
+      "learning": {"icon": "📖"},
+      "ideas": {"icon": "💡"},
+      "health": {"icon": "❤️"},
+      "finance": {"icon": "💳"}
+    }
+  }
+}

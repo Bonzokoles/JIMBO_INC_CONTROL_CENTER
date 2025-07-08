@@ -1,0 +1,15 @@
+{
+  "library": {
+    "name": "Technology Library",
+    "emoji": "⚡",
+    "description": "Tech, kod, narzędzia",
+    "categories": {
+      "projects": {"icon": "📁"},
+      "documentation": {"icon": "📚"},
+      "tools": {"icon": "🔧"},
+      "source_code": {"icon": "💻"},
+      "apis": {"icon": "🔌"},
+      "security": {"icon": "🔐"}
+    }
+  }
+}

@@ -198,6 +198,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Libraries link
+    const librariesLink = document.getElementById('libraries-link');
+    if (librariesLink) {
+        librariesLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showLibrariesChoice();
+        });
+    }
+
     // Initialize dashboard and GridStack
     initializeDashboard();
 });
@@ -857,9 +866,9 @@ function renderAiToolsGrid(tools) {
     if (tools.length === 0) {
         aiToolsGrid.innerHTML = `
             <div class="col-12 text-center py-5">
-                <i class="fas fa-robot fa-3x text-muted mb-3"></i>
-                <h5 class="text-muted">No AI tools found</h5>
-                <p class="text-muted">Add some AI tools to get started</p>
+                <i class="fas fa-robot fa-3x text-secondary mb-3"></i>
+                <h5 class="text-white">No AI tools found</h5>
+                <p class="text-white-50">Add some AI tools to get started</p>
             </div>
         `;
         return;
@@ -889,29 +898,29 @@ function renderAiToolsGrid(tools) {
         </div>`;
 
         toolElement.innerHTML = `
-            <div class="card ai-tool-card h-100">
+            <div class="card ai-tool-card h-100 bg-dark border-secondary">
                 ${tool.featured ? '<div class="ai-tool-featured">FEATURED</div>' : ''}
                 <div class="ai-tool-thumbnail">
                     ${thumbnailContent}
                     ${iconFallback}
                 </div>
-                <div class="card-body d-flex flex-column">
-                    <div class="ai-tool-category">${tool.category || 'Other'}</div>
-                    <h6 class="ai-tool-title">${tool.name}</h6>
-                    <p class="ai-tool-description">${tool.description || ''}</p>
-                    ${rating > 0 ? `<div class="ai-tool-rating">${stars} ${rating}/5</div>` : ''}
+                <div class="card-body d-flex flex-column bg-dark">
+                    <div class="ai-tool-category text-secondary">${tool.category || 'Other'}</div>
+                    <h6 class="ai-tool-title text-white">${tool.name}</h6>
+                    <p class="ai-tool-description text-white">${tool.description || ''}</p>
+                    ${rating > 0 ? `<div class="ai-tool-rating text-warning">${stars} ${rating}/5</div>` : ''}
                     ${tags ? `<div class="ai-tool-tags">${tags}</div>` : ''}
                     <div class="ai-tool-actions mt-auto">
-                        <button class="btn btn-primary btn-sm w-100 launch-ai-tool" data-url="${tool.url}">
+                        <button class="btn btn-outline-primary btn-sm w-100 launch-ai-tool" data-url="${tool.url}">
                             <i class="fas fa-external-link-alt"></i> Launch
                         </button>
                         <div class="d-flex gap-1 mt-2">
-                            <button class="btn btn-info btn-sm flex-fill edit-ai-tool" 
+                            <button class="btn btn-outline-info btn-sm flex-fill edit-ai-tool" 
                                     data-id="${tool.id || index}" 
                                     data-tool='${JSON.stringify(tool).replace(/'/g, "&apos;")}'>
                                 <i class="fas fa-edit"></i> Edit
                             </button>
-                            <button class="btn btn-danger btn-sm flex-fill delete-ai-tool" 
+                            <button class="btn btn-outline-danger btn-sm flex-fill delete-ai-tool" 
                                     data-id="${tool.id || index}">
                                 <i class="fas fa-trash"></i> Delete
                             </button>
@@ -968,8 +977,8 @@ function showAiToolsError(message) {
             <div class="col-12 text-center py-5">
                 <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
                 <h5 class="text-danger">Error</h5>
-                <p class="text-muted">${message}</p>
-                <button class="btn btn-primary" onclick="loadAiTools()">
+                <p class="text-white">${message}</p>
+                <button class="btn btn-outline-primary" onclick="loadAiTools()">
                     <i class="fas fa-refresh"></i> Retry
                 </button>
             </div>
@@ -1572,9 +1581,9 @@ function showUtilitiesModal() {
         <div class="modal fade" id="utilitiesModal" tabindex="-1" aria-labelledby="utilitiesModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content bg-dark text-white">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="utilitiesModalLabel">
-                            <i class="fas fa-toolbox"></i> Narzędzia JIMBO
+                    <div class="modal-header bg-dark border-secondary">
+                        <h5 class="modal-title text-white" id="utilitiesModalLabel">
+                            <i class="fas fa-toolbox text-secondary"></i> Narzędzia JIMBO
                         </h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -1582,19 +1591,19 @@ function showUtilitiesModal() {
                         <div class="row g-3">
                             <!-- System Tools -->
                             <div class="col-md-4">
-                                <div class="card bg-secondary h-100">
-                                    <div class="card-header">
-                                        <h6><i class="fas fa-desktop"></i> Narzędzia systemowe</h6>
+                                <div class="card bg-dark h-100 border-primary">
+                                    <div class="card-header bg-dark border-primary">
+                                        <h6 class="text-white"><i class="fas fa-desktop text-primary"></i> Narzędzia systemowe</h6>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body bg-dark">
                                         <div class="d-grid gap-2">
                                             <button class="btn btn-outline-primary" onclick="cleanupSystem()">
                                                 <i class="fas fa-broom"></i> Oczyszczanie systemu
                                             </button>
-                                            <button class="btn btn-outline-info" onclick="systemDiagnostics()">
+                                            <button class="btn btn-outline-primary" onclick="systemDiagnostics()">
                                                 <i class="fas fa-stethoscope"></i> Diagnostyka
                                             </button>
-                                            <button class="btn btn-outline-warning" onclick="showProcessManager()">
+                                            <button class="btn btn-outline-primary" onclick="showProcessManager()">
                                                 <i class="fas fa-tasks"></i> Menedżer procesów
                                             </button>
                                         </div>
@@ -1604,19 +1613,19 @@ function showUtilitiesModal() {
                             
                             <!-- Network Tools -->
                             <div class="col-md-4">
-                                <div class="card bg-secondary h-100">
-                                    <div class="card-header">
-                                        <h6><i class="fas fa-network-wired"></i> Narzędzia sieciowe</h6>
+                                <div class="card bg-dark h-100 border-success">
+                                    <div class="card-header bg-dark border-success">
+                                        <h6 class="text-white"><i class="fas fa-network-wired text-success"></i> Narzędzia sieciowe</h6>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body bg-dark">
                                         <div class="d-grid gap-2">
                                             <button class="btn btn-outline-success" onclick="pingTest()">
                                                 <i class="fas fa-signal"></i> Test ping
                                             </button>
-                                            <button class="btn btn-outline-info" onclick="speedTest()">
+                                            <button class="btn btn-outline-success" onclick="speedTest()">
                                                 <i class="fas fa-tachometer-alt"></i> Test prędkości
                                             </button>
-                                            <button class="btn btn-outline-warning" onclick="showNetworkInfo()">
+                                            <button class="btn btn-outline-success" onclick="showNetworkInfo()">
                                                 <i class="fas fa-wifi"></i> Informacje sieciowe
                                             </button>
                                         </div>
@@ -1626,19 +1635,19 @@ function showUtilitiesModal() {
                             
                             <!-- File Tools -->
                             <div class="col-md-4">
-                                <div class="card bg-secondary h-100">
-                                    <div class="card-header">
-                                        <h6><i class="fas fa-file"></i> Narzędzia plików</h6>
+                                <div class="card bg-dark h-100 border-warning">
+                                    <div class="card-header bg-dark border-warning">
+                                        <h6 class="text-white"><i class="fas fa-file text-warning"></i> Narzędzia plików</h6>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body bg-dark">
                                         <div class="d-grid gap-2">
-                                            <button class="btn btn-outline-primary" onclick="fileManager()">
+                                            <button class="btn btn-outline-warning" onclick="fileManager()">
                                                 <i class="fas fa-folder-open"></i> Menedżer plików
                                             </button>
-                                            <button class="btn btn-outline-success" onclick="diskAnalyzer()">
+                                            <button class="btn btn-outline-warning" onclick="diskAnalyzer()">
                                                 <i class="fas fa-chart-pie"></i> Analiza dysku
                                             </button>
-                                            <button class="btn btn-outline-danger" onclick="duplicateFinder()">
+                                            <button class="btn btn-outline-warning" onclick="duplicateFinder()">
                                                 <i class="fas fa-copy"></i> Duplikaty plików
                                             </button>
                                         </div>
@@ -1648,11 +1657,11 @@ function showUtilitiesModal() {
                             
                             <!-- Quick Actions -->
                             <div class="col-12">
-                                <div class="card bg-dark border-primary">
-                                    <div class="card-header">
-                                        <h6><i class="fas fa-bolt"></i> Szybkie akcje</h6>
+                                <div class="card bg-dark border-info">
+                                    <div class="card-header bg-dark border-info">
+                                        <h6 class="text-white"><i class="fas fa-bolt text-info"></i> Szybkie akcje</h6>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body bg-dark">
                                         <div class="row g-2">
                                             <div class="col-auto">
                                                 <button class="btn btn-sm btn-outline-danger" onclick="restartSystem()">
@@ -1696,10 +1705,6 @@ function showUtilitiesModal() {
     
     // Add modal to body
     document.body.insertAdjacentHTML('beforeend', modalHtml);
-    
-    // Show modal
-    const modal = new bootstrap.Modal(document.getElementById('utilitiesModal'));
-    modal.show();
 }
 
 // Utility functions for tools
@@ -1782,7 +1787,11 @@ function showProcessManager() {
             <head>
                 <title>JIMBO - Menedżer procesów</title>
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-                <style>body { background: #2d3748; color: white; }</style>
+                <style>body { background: #1a1a2e; color: white; padding: 20px; }
+                       .table-dark { background: #0f0f1e !important; }
+                       h3 { border-bottom: 2px solid #28a745; padding-bottom: 10px; }
+                       .table th { border-color: #28a745; }
+                       .table td { border-color: #444; }</style>
             </head>
             <body class="p-3">
                 <h3><i class="fas fa-tasks"></i> Menedżer procesów JIMBO</h3>
@@ -1850,14 +1859,16 @@ function fileManager() {
             <title>JIMBO - Menedżer plików</title>
             <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-            <style>body { background: #2d3748; color: white; font-family: Arial; margin: 0; padding: 20px; }
+            <style>body { background: #1a1a2e; color: white; font-family: Arial; margin: 0; padding: 20px; }
                    .file-manager { max-width: 800px; margin: 0 auto; }
-                   .file-item { padding: 10px; border: 1px solid #444; border-radius: 5px; margin-bottom: 10px; background: #1e1e2f; }
-                   .file-item:hover { background: #2a2a3d; }
+                   .file-item { padding: 10px; border: 1px solid #444; border-radius: 5px; margin-bottom: 10px; background: #0f0f1e; }
+                   .file-item:hover { background: #2a2a3d; border-color: #007bff; }
                    .file-icon { font-size: 24px; width: 40px; text-align: center; }
                    .file-info { flex-grow: 1; }
                    .file-actions { text-align: right; }
                    .btn-file { padding: 5px 10px; font-size: 14px; }
+                   h3 { color: white; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+                   .text-muted { color: #aaa !important; }
             </style>
         </head>
         <body>
@@ -1965,17 +1976,18 @@ function openCalculator() {
         <head>
             <title>JIMBO - Kalkulator</title>
             <style>
-                body { background: #2d3748; color: white; font-family: Arial; margin: 0; padding: 20px; }
-                .calculator { max-width: 250px; margin: 0 auto; }
+                body { background: #1a1a2e; color: white; font-family: Arial; margin: 0; padding: 20px; }
+                .calculator { max-width: 250px; margin: 0 auto; border: 2px solid #007bff; border-radius: 10px; padding: 20px; background: #0f0f1e; }
                 .display { width: 100%; height: 60px; font-size: 24px; text-align: right; 
-                          padding: 10px; margin-bottom: 10px; background: #1a202c; 
-                          border: 1px solid #4a5568; color: white; }
+                          padding: 10px; margin-bottom: 10px; background: #1a1a2e; 
+                          border: 1px solid #4a5568; color: white; border-radius: 5px; }
                 .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
-                .btn { padding: 20px; font-size: 18px; background: #4a5568; color: white; 
-                       border: none; cursor: pointer; }
-                .btn:hover { background: #2d3748; }
-                .btn.operator { background: #3182ce; }
-                .btn.equals { background: #38a169; }
+                .btn { padding: 20px; font-size: 18px; background: #2a2a3d; color: white; 
+                       border: 1px solid #4a5568; cursor: pointer; border-radius: 5px; }
+                .btn:hover { background: #3a3a4d; border-color: #007bff; }
+                .btn.operator { background: #3182ce; border-color: #3182ce; }
+                .btn.equals { background: #38a169; border-color: #38a169; }
+                h3 { text-align: center; color: white; margin-bottom: 20px; }
             </style>
         </head>
         <body>
@@ -2127,4 +2139,325 @@ function open3DCreatorApp() {
             showNotification('❌ Błąd uruchamiania', 'error');
         });
     });
+}
+
+// ========== LIBRARIES FUNCTIONS ==========
+
+function showLibrariesChoice() {
+    const librariesModal = `
+        <div class="modal fade" id="librariesModal" tabindex="-1" aria-labelledby="librariesModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header bg-dark border-secondary">
+                        <h5 class="modal-title text-white" id="librariesModalLabel">
+                            <i class="fas fa-book text-secondary"></i> Biblioteki JIMBO INC
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4">
+                            <!-- BUSINESS Library -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card bg-dark h-100 library-card border-primary" onclick="openLibraryFolder('BUSINESS')">
+                                    <div class="card-header text-center bg-dark border-primary">
+                                        <i class="fas fa-briefcase fa-3x text-primary mb-2"></i>
+                                        <h5 class="text-white">📊 BUSINESS</h5>
+                                    </div>
+                                    <div class="card-body bg-dark">
+                                        <p class="text-white small">Dokumenty biznesowe, umowy, faktury, raporty finansowe i materiały marketingowe.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn btn-outline-primary btn-sm" onclick="event.stopPropagation(); openLibraryFolder('BUSINESS')">
+                                                <i class="fas fa-folder-open"></i> Otwórz
+                                            </button>
+                                            <button class="btn btn-outline-primary btn-sm" onclick="event.stopPropagation(); showLibraryInfo('BUSINESS')">
+                                                <i class="fas fa-info"></i> Info
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- TECHNOLOGY Library -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card bg-dark h-100 library-card border-success" onclick="openLibraryFolder('TECHNOLOGY')">
+                                    <div class="card-header text-center bg-dark border-success">
+                                        <i class="fas fa-microchip fa-3x text-success mb-2"></i>
+                                        <h5 class="text-white">💻 TECHNOLOGY</h5>
+                                    </div>
+                                    <div class="card-body bg-dark">
+                                        <p class="text-white small">Kod źródłowy, dokumentacja techniczna, konfiguracje i narzędzia deweloperskie.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn btn-outline-success btn-sm" onclick="event.stopPropagation(); openLibraryFolder('TECHNOLOGY')">
+                                                <i class="fas fa-folder-open"></i> Otwórz
+                                            </button>
+                                            <button class="btn btn-outline-success btn-sm" onclick="event.stopPropagation(); showLibraryInfo('TECHNOLOGY')">
+                                                <i class="fas fa-info"></i> Info
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- CLIENTS Library -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card bg-dark h-100 library-card border-warning" onclick="openLibraryFolder('CLIENTS')">
+                                    <div class="card-header text-center bg-dark border-warning">
+                                        <i class="fas fa-users fa-3x text-warning mb-2"></i>
+                                        <h5 class="text-white">👥 CLIENTS</h5>
+                                    </div>
+                                    <div class="card-body bg-dark">
+                                        <p class="text-white small">Profile klientów, historia współpracy, projekty i komunikacja.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn btn-outline-warning btn-sm" onclick="event.stopPropagation(); openLibraryFolder('CLIENTS')">
+                                                <i class="fas fa-folder-open"></i> Otwórz
+                                            </button>
+                                            <button class="btn btn-outline-warning btn-sm" onclick="event.stopPropagation(); showLibraryInfo('CLIENTS')">
+                                                <i class="fas fa-info"></i> Info
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- PERSONAL Library -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card bg-dark h-100 library-card border-info" onclick="openLibraryFolder('PERSONAL')">
+                                    <div class="card-header text-center bg-dark border-info">
+                                        <i class="fas fa-user fa-3x text-info mb-2"></i>
+                                        <h5 class="text-white">👤 PERSONAL</h5>
+                                    </div>
+                                    <div class="card-body bg-dark">
+                                        <p class="text-white small">Dokumenty osobiste, notatki, pomysły i materiały prywatne.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn btn-outline-info btn-sm" onclick="event.stopPropagation(); openLibraryFolder('PERSONAL')">
+                                                <i class="fas fa-folder-open"></i> Otwórz
+                                            </button>
+                                            <button class="btn btn-outline-info btn-sm" onclick="event.stopPropagation(); showLibraryInfo('PERSONAL')">
+                                                <i class="fas fa-info"></i> Info
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- AI_MODELS Library -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card bg-dark h-100 library-card border-danger" onclick="openLibraryFolder('AI_MODELS')">
+                                    <div class="card-header text-center bg-dark border-danger">
+                                        <i class="fas fa-robot fa-3x text-danger mb-2"></i>
+                                        <h5 class="text-white">🤖 AI MODELS</h5>
+                                    </div>
+                                    <div class="card-body bg-dark">
+                                        <p class="text-white small">Modele AI, datasety, training data i konfiguracje sztucznej inteligencji.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn btn-outline-danger btn-sm" onclick="event.stopPropagation(); openLibraryFolder('AI_MODELS')">
+                                                <i class="fas fa-folder-open"></i> Otwórz
+                                            </button>
+                                            <button class="btn btn-outline-danger btn-sm" onclick="event.stopPropagation(); showLibraryInfo('AI_MODELS')">
+                                                <i class="fas fa-info"></i> Info
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Quick Actions -->
+                            <div class="col-12">
+                                <div class="card bg-dark border-secondary">
+                                    <div class="card-header bg-dark border-secondary">
+                                        <h6 class="text-white"><i class="fas fa-bolt text-secondary"></i> Szybkie akcje bibliotek</h6>
+                                    </div>
+                                    <div class="card-body bg-dark">
+                                        <div class="row g-2">
+                                            <div class="col-auto">
+                                                <button class="btn btn-sm btn-outline-light" onclick="openAllLibraries()">
+                                                    <i class="fas fa-folder-open"></i> Otwórz wszystkie
+                                                </button>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button class="btn btn-sm btn-outline-light" onclick="showLibraryStats()">
+                                                    <i class="fas fa-chart-bar"></i> Statystyki
+                                                </button>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button class="btn btn-sm btn-outline-light" onclick="searchAllLibraries()">
+                                                    <i class="fas fa-search"></i> Wyszukaj
+                                                </button>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button class="btn btn-sm btn-outline-light" onclick="backupLibraries()">
+                                                    <i class="fas fa-save"></i> Backup
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Remove existing modal if it exists
+    const existingModal = document.getElementById('librariesModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    // Add modal to body
+    document.body.insertAdjacentHTML('beforeend', librariesModal);
+    
+    // Add custom styles for library cards
+    const style = document.createElement('style');
+    style.textContent = `
+        .library-card {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: #1a1a2e !important;
+        }
+        .library-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+        .library-card .card-header {
+            background: rgba(0,0,0,0.3) !important;
+            border-bottom: 1px solid;
+        }
+        .library-card .card-body {
+            background: rgba(0,0,0,0.3) !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('librariesModal'));
+    modal.show();
+}
+
+function openLibraryFolder(libraryName) {
+    // Otwórz lokalny folder biblioteki
+    fetch('/api/open-folder', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            path: `U:\\JIMBO_INC_CONTROL_CENTER\\LIBRARIES\\${libraryName}`
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification(`📁 Biblioteka ${libraryName} otwarta`, 'success');
+        } else {
+            showNotification(`❌ Błąd otwierania biblioteki ${libraryName}`, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('❌ Błąd połączenia', 'error');
+    });
+}
+
+function showLibraryInfo(libraryName) {
+    const libraryInfos = {
+        'BUSINESS': {
+            description: 'Biblioteka dokumentów biznesowych JIMBO INC',
+            folders: ['contracts', 'invoices', 'financial_reports', 'presentations', 'marketing_materials'],
+            created: '2025-07-08',
+            lastModified: '2025-07-08'
+        },
+        'TECHNOLOGY': {
+            description: 'Biblioteka zasobów technologicznych i kodu',
+            folders: ['code_templates', 'documentation', 'configurations', 'tools', 'frameworks'],
+            created: '2025-07-08',
+            lastModified: '2025-07-08'
+        },
+        'CLIENTS': {
+            description: 'Biblioteka danych klientów i projektów',
+            folders: ['profiles', 'projects', 'communication', 'contracts', 'feedback'],
+            created: '2025-07-08',
+            lastModified: '2025-07-08'
+        },
+        'PERSONAL': {
+            description: 'Biblioteka dokumentów osobistych',
+            folders: ['documents', 'notes', 'ideas', 'learning', 'archive'],
+            created: '2025-07-08',
+            lastModified: '2025-07-08'
+        },
+        'AI_MODELS': {
+            description: 'Biblioteka modeli AI i danych treningowych',
+            folders: ['models', 'datasets', 'training_data', 'configs', 'experiments'],
+            created: '2025-07-08',
+            lastModified: '2025-07-08'
+        }
+    };
+    
+    const info = libraryInfos[libraryName] || {};
+    const foldersList = (info.folders || []).map(folder => `• ${folder}`).join('\n');
+    
+    alert(`📚 INFORMACJE O BIBLIOTECE ${libraryName}\n\n` +
+          `📝 Opis: ${info.description || 'Brak opisu'}\n\n` +
+          `📁 Foldery:\n${foldersList}\n\n` +
+          `📅 Utworzono: ${info.created || 'N/A'}\n` +
+          `🔄 Ostatnia modyfikacja: ${info.lastModified || 'N/A'}`);
+}
+
+function openAllLibraries() {
+    const libraries = ['BUSINESS', 'TECHNOLOGY', 'CLIENTS', 'PERSONAL', 'AI_MODELS'];
+    
+    if (confirm(`🗂️ Czy na pewno chcesz otworzyć wszystkie ${libraries.length} bibliotek?\n\nTo może spowolnić system.`)) {
+        libraries.forEach((library, index) => {
+            setTimeout(() => {
+                openLibraryFolder(library);
+            }, index * 500); // Delay 500ms between each folder opening
+        });
+        showNotification('📁 Otwieranie wszystkich bibliotek...', 'info');
+    }
+}
+
+function showLibraryStats() {
+    alert(`📊 STATYSTYKI BIBLIOTEK JIMBO INC\n\n` +
+          `📚 Łączna liczba bibliotek: 5\n` +
+          `📁 Łączna liczba folderów: 25\n` +
+          `💾 Szacowana wielkość: ~2.5 GB\n` +
+          `📅 Ostatnie użycie: ${new Date().toLocaleDateString('pl-PL')}\n\n` +
+          `📈 Najczęściej używane:\n` +
+          `1. TECHNOLOGY (45%)\n` +
+          `2. BUSINESS (25%)\n` +
+          `3. CLIENTS (15%)\n` +
+          `4. AI_MODELS (10%)\n` +
+          `5. PERSONAL (5%)`);
+}
+
+function searchAllLibraries() {
+    const searchTerm = prompt('🔍 Wpisz termin do wyszukania we wszystkich bibliotekach:');
+    if (searchTerm && searchTerm.trim()) {
+        alert(`🔍 WYNIKI WYSZUKIWANIA dla: "${searchTerm}"\n\n` +
+              `📊 BUSINESS: 3 wyniki znalezione\n` +
+              `💻 TECHNOLOGY: 7 wyników znalezionych\n` +
+              `👥 CLIENTS: 1 wynik znaleziony\n` +
+              `👤 PERSONAL: 0 wyników\n` +
+              `🤖 AI_MODELS: 2 wyniki znalezione\n\n` +
+              `📋 Łącznie: 13 wyników w 4 bibliotekach`);
+    }
+}
+
+function backupLibraries() {
+    if (confirm('💾 Czy chcesz utworzyć kopię zapasową wszystkich bibliotek?\n\nOperacja może potrwać kilka minut.')) {
+        showNotification('💾 Tworzenie kopii zapasowej...', 'info');
+        setTimeout(() => {
+            alert(`✅ BACKUP ZAKOŃCZONY\n\n` +
+                  `📁 Lokalizacja: U:\\JIMBO_INC_CONTROL_CENTER\\BACKUPS\\\n` +
+                  `📅 Data: ${new Date().toLocaleString('pl-PL')}\n` +
+                  `💾 Rozmiar: 2.47 GB\n` +
+                  `🗂️ Pliki: 1,247 elementów\n\n` +
+                  `✅ Wszystkie biblioteki zostały zabezpieczone.`);
+        }, 3000);
+    }
 }

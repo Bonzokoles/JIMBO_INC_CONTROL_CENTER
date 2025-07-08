@@ -1,0 +1,15 @@
+{
+  "library": {
+    "name": "Clients Library",
+    "emoji": "👥",
+    "description": "Klienci i projekty",
+    "categories": {
+      "active": {"icon": "✅"},
+      "potential": {"icon": "🎯"},
+      "completed": {"icon": "✨"},
+      "communication": {"icon": "💬"},
+      "proposals": {"icon": "📋"},
+      "meetings": {"icon": "🤝"}
+    }
+  }
+}
